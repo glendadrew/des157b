@@ -4,7 +4,6 @@
     const button = document.querySelector('button');
     const body = document.querySelector('body');
     const banner = document.querySelector('#banner');
-    const footer = document.querySelector('footer');
     const sections = document.querySelectorAll('section')
     let mode = 'color';
 
@@ -12,7 +11,6 @@
         if (mode === 'color') {
             body.className = 'switch';
             banner.className = 'switch';
-            footer.className = 'switch';
             for (let section of sections) {
                 section.className = 'switch';
             }
@@ -21,7 +19,6 @@
         } else {
             body.removeAttribute('class');
             banner.removeAttribute('class');
-            footer.removeAttribute('class');
             for (let section of sections) {
                 section.removeAttribute('class');
             }

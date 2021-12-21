@@ -170,47 +170,6 @@ button:hover {
     cursor: pointer;
 }
 
-footer {
-    display: flex;
-    justify-content: center;
-    margin-top: 2em;
-    padding: 1em;
-    border-top: 5px greenyellow dotted;
-    /* background: linear-gradient(to bottom right, yellow, greenyellow); */
-    transition: all 2s;
-}
-
-footer li {
-    display: inline-block;
-    font-weight: bold;
-    font-size: .9em;
-    /* text-align: center; */
-}
-
-footer a {
-    padding: 1.5em;
-    color: yellow
-}
-
-footer a:hover {
-    background-color: #f06;
-    color: white;
-}
-
-footer.switch {
-    border-top: 0px;
-}
-
-footer.switch a {
-    background-color: black;
-    color: antiquewhite;
-}
-
-footer.switch a:hover {
-    background-color: orange;
-    color: black;
-}
-
 
 /* tried using flex:n instead of width:npx but the movement was jittery w flex */
 
