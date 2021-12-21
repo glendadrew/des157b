@@ -67,6 +67,16 @@
             left: 50%;
         }
         
+        .fa-dove {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 36px;
+            color: antiquewhite;
+            transform: translate(-50%, -50%);
+            animation: bird 2s infinite alternate ease-in-out;
+        }
+        
         .fa-expand {
             position: absolute;
             top: 10px;
@@ -86,12 +96,26 @@
         .showing {
             opacity: 1
         }
+        
+        @keyframes bird {
+            0% {
+                opacity: .5;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: .5;
+                transform: scale(1.5);
+            }
+        }
     </style>
 
 </head>
 
 <body>
-    <video id="myVideo" poster="images/poster.jpg" muted autoplay loop playsinline>
+    <video id="myVideo" muted autoplay loop playsinline>
 
         <source src="media/cranes-short.webm" type="video/webm">
         <source src="media/cranes-short.mp4" type="video/mp4">
@@ -99,6 +123,7 @@
         <p>Your browser doesn't support HTML5 video. Here is a <a href="media/cranes-short.mp4">link to the video</a>
             instead.</p>
     </video>
+    <i class="fa-solid fa-dove"></i>
     <i class="fas fa-expand"></i>
     <section id="poem">
         <p id="line1" class="hidden">The language of cranes</p>
@@ -115,6 +140,7 @@
             'use strict';
             console.log('reading');
             const myVideo = document.querySelector('#myVideo');
+            const loading = document.querySelector('.fa-dove');
             const fs = document.querySelector('.fa-expand');
             const line1 = document.querySelector('#line1');
             const line2 = document.querySelector('#line2');
@@ -129,6 +155,10 @@
                 lines: [line1, line2, line3, line4, line5, line6]
             }
             let poem = true; // only play poem one time
+
+            myVideo.addEventListener('playing', function() {
+                loading.style.display = 'none';
+            })
 
             const intervalID = setInterval(checkTime, 1000);
 
