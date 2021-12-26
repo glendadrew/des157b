@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video API - Example 1e - Playlist</title>
+    <title>Example 6 - Playlist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
     <link rel="preload" href="media/airport-f.mp4" as="video" type="video/mp4">
@@ -81,7 +81,7 @@
             const source = document.querySelector('source');
             const loading = document.querySelector('.fa-dove');
             const videos = ['media/airport-f.mp4', 'media/beach-aerial-f.mp4', 'media/turbines-f.mp4', 'media/beach-f.mp4'];
-            let counter = 0;
+            let index = 0;
 
             myVideo.addEventListener('playing', function() {
                 loading.style.display = 'none';
@@ -92,20 +92,17 @@
             function changeVideo() {
                 console.log('video ended');
 
-                source.setAttribute('src', videos[counter]);
+                source.setAttribute('src', videos[index]);
                 myVideo.load();
                 myVideo.play();
 
-                if (counter >= videos.length - 1) {
-                    counter = 0;
+                if (index >= videos.length - 1) {
+                    index = 0;
                 } else {
-                    counter++;
+                    index++;
                 }
-
-                // vid.addEventListener('ended', changeVideo)
             }
-
-        })()
+        })();
     </script>
 </body>
 
