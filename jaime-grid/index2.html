@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaime Banner</title>
+
+    <style>
+        #banner {
+            display: grid;
+            grid-template-columns: repeat(22, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            grid-column-gap: 2px;
+            grid-row-gap: 2px;
+        }
+
+        #banner div {
+            background-color: magenta;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="banner">
+    </section>
+
+    <button>switch</button>
+
+    <script>
+        const button = document.querySelector('button');
+        const banner = document.querySelector('#banner');
+        const colors = ['purple', 'aqua', 'darkgray', 'yellow', 'limegreen', 'magenta'];
+        const grays = ['white', 'black', 'gray', 'lightgray', 'darkgray'];
+        let bannerSwitch = false;
+
+        button.addEventListener('click', function () {
+            if (!bannerSwitch) {
+                makeGrayDivs();
+            } else {
+                makeColorDivs();
+            }
+            bannerSwitch = !bannerSwitch;
+        })
+
+        // make initial call to function
+        makeDivs();
+        makeColorDivs();
+
+        function makeDivs() {
+            let counter = 0;
+
+            for (var i = 0; i < 110; i++) {
+                banner.innerHTML += `<div id="block${counter}"></div>`;
+                counter++;
+            }
+        }
+
+        function makeColorDivs() {
+            let counter = 0;
+
+            for (var i = 0; i < 110; i++) {
+                document.querySelector(`#block${counter}`).style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                counter++;
+            }
+        }
+
+        function makeGrayDivs() {
+            let counter = 0;
+
+            for (var i = 0; i < 110; i++) {
+                document.querySelector(`#block${counter}`).style.backgroundColor = grays[Math.floor(Math.random() * grays.length)];
+                counter++;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
